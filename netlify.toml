@@ -1,0 +1,25 @@
+# The Girl House — www.thegirlhouse-pruszcz.pl
+# Static site, no build step.
+
+[build]
+  publish = "."
+  command = ""
+
+# Security headers for every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    # DEV ONLY: keeps the site out of search engines until launch.
+    # Remove this line (and <meta name="robots" content="noindex">) at go-live.
+    X-Robots-Tag = "noindex"
+
+# Long cache for static assets (filenames change when content changes)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
