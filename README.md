@@ -3,7 +3,11 @@
 Site: https://www.thegirlhouse-pruszcz.pl · Hosting: Netlify (project `thegirlhouse-pruszcz`, deploy on push to `main`).
 
 ## Status
-- **Placeholder** ("Nowa strona już wkrótce") — not indexed (`noindex` meta + `X-Robots-Tag` in `netlify.toml`).
+- **Stage 3 (04.11.2026):** full PL version in style B "Wieczór". Not indexed yet (`noindex` meta + `X-Robots-Tag` in `netlify.toml`).
+- Placeholders waiting for owner input: photos (hero nails, gallery, team), reviews, NIP, hygiene facts (sterilisation, materials), Booksy link check.
+
+## Updating prices
+Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `#uslugi`. Update both, plus the "Aktualne na" date. After stage 4 also `/en/index.html`.
 
 ## Structure
 - Static HTML/CSS, no build step. Netlify: build command empty, publish directory `.`.
