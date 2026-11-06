@@ -22,6 +22,8 @@ a{color:inherit}
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font:500 .95rem/1 var(--sans);text-decoration:none;white-space:nowrap}
 .btn-main{background:var(--neon);color:var(--grafit)}
+.ic{width:20px;height:20px;flex:none}
+.btn .ic{width:18px;height:18px;margin:0 8px 0 -4px}
 .btn-main:hover{background:#ff86d1}
 .btn-alt{border:1.5px solid var(--szary);color:var(--krem)}
 .btn-alt:hover{border-color:var(--krem)}
@@ -34,8 +36,9 @@ a{color:inherit}
 .top nav{display:none;gap:22px;font-size:.9rem;margin-left:auto}
 .top nav a{text-decoration:none;padding:6px 0;color:var(--szary)}
 .top nav a:hover{color:var(--krem)}
-.lang{font-size:.85rem;color:var(--szary);display:none}
-.lang b{color:var(--krem);font-weight:600}
+.lang{font-size:.85rem;color:var(--szary);display:none;align-items:center}
+.lang a{color:var(--szary);text-underline-offset:3px;padding:6px 2px}
+.lang a[aria-current],.lang-m a[aria-current]{color:var(--krem);font-weight:600;text-decoration:none}
 .menu{position:relative}
 .menu summary{list-style:none;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border:1.5px solid var(--linia);border-radius:12px}
 .menu summary::-webkit-details-marker{display:none}
@@ -48,7 +51,8 @@ a{color:inherit}
 .menu .panel{position:absolute;right:0;top:54px;background:var(--ciemne-2);border:1px solid var(--linia);border-radius:16px;padding:10px;min-width:220px;display:grid}
 .menu .panel a{padding:12px 14px;text-decoration:none;border-radius:10px}
 .menu .panel a:hover{background:var(--ciemne-3)}
-.menu .panel .lang-m{padding:12px 14px;color:var(--szary);font-size:.9rem;border-top:1px solid var(--linia);margin-top:6px}
+.menu .panel .lang-m{padding:6px 4px 2px;color:var(--szary);font-size:.9rem;border-top:1px solid var(--linia);margin-top:6px}
+.menu .panel .lang-m a{display:inline-block;padding:10px}
 @media (min-width:960px){
   .top .logo img{height:50px}
   .top nav,.lang{display:flex}
@@ -69,7 +73,7 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .hero .lead{margin:20px auto 0;max-width:40ch;color:var(--szary);font-size:1.05rem}
 .hero .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
 .trust{margin-top:20px;font-size:.92rem;color:var(--szary)}
-.trust a{color:var(--krem);text-underline-offset:3px}
+.trust a:not(.btn){color:var(--krem);text-underline-offset:3px}
 .star{color:var(--neon)}
 
 /* Nail shapes */
@@ -108,6 +112,7 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .cat ul{list-style:none;padding:2px 0 14px;font-variant-numeric:tabular-nums}
 .cat li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:12px 0;border-top:1px solid var(--linia)}
 .cat li .t{grid-column:1;font-size:.85rem;color:var(--szary)}
+.cat li .pl{display:block;font-size:.82rem;color:var(--szary);font-style:italic}
 .cat li .p{grid-row:1/3;grid-column:2;align-self:center;font-weight:600;color:var(--neon);white-space:nowrap}
 
 /* Prace */
@@ -151,21 +156,33 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 /* Kontakt */
 .contact{display:grid;gap:28px;margin:40px auto 0;max-width:900px}
 @media (min-width:820px){.contact{grid-template-columns:1fr 1fr;gap:40px}}
-.contact h3{font:400 1.3rem/1.25 var(--display);margin-bottom:10px}
+.contact h3{font:400 1.3rem/1.25 var(--display);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.links{list-style:none;display:grid;gap:20px}
+.links li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
+.ico{width:44px;height:44px;border-radius:14px;background:var(--ciemne-2);display:grid;place-items:center;color:var(--neon);flex:none}
+.ico.sm{width:36px;height:36px;border-radius:12px}
+.ico .ic{width:20px;height:20px}
+.links .k{display:block;font-size:.8rem;color:var(--szary);letter-spacing:.02em}
+.links .sub{display:block;color:var(--szary);font-size:.9rem}
 .contact p,.contact dd{color:var(--szary)}
-.contact a{color:var(--krem);text-underline-offset:3px}
+.contact a:not(.btn){color:var(--krem);text-underline-offset:3px}
 .hours{display:grid;grid-template-columns:auto 1fr;gap:6px 20px}
 .hours dt{color:var(--krem)}
 .contact .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 
 /* Footer */
 .foot{border-top:1px solid var(--linia);padding:36px 0 48px;font-size:.85rem;color:var(--szary)}
-.foot .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
-.foot a{color:var(--krem);text-underline-offset:3px}
+.foot .wrap{display:grid;gap:24px}
+.foot a:not(.btn){color:var(--krem);text-underline-offset:3px}
+.social{display:flex;flex-wrap:wrap;gap:10px}
+.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px solid var(--linia);border-radius:999px;text-decoration:none;font-size:.9rem}
+.social a:hover{border-color:var(--szary)}
+.social .ic{width:18px;height:18px;color:var(--neon)}
+.legal-line{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
 
 /* Legal page */
 .legal{padding:clamp(40px,7vw,80px) 0}
 .legal h1{font:400 clamp(2rem,5vw,2.8rem)/1.15 var(--display)}
 .legal h2{text-align:left;font-size:1.35rem;margin-top:32px}
 .legal p{color:var(--szary);margin-top:10px;max-width:68ch}
-.legal a{color:var(--krem)}
+.legal a:not(.btn){color:var(--krem)}
