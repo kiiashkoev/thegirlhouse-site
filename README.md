@@ -19,3 +19,7 @@ Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `
 ## Rules
 - Every push to `main` = one production deploy (Netlify free plan: 15 credits per deploy, 300/month). Batch changes into one push.
 - No external scripts, trackers, CDN fonts or iframes (zero cookies).
+
+## Cache busting
+CSS/JS are linked with `?v=<md5>` generated from file content, so browsers always fetch a changed file
+(needed because the first deploys sent `immutable` 1-year cache on all assets). Icons carry width/height="16" as a fallback.
