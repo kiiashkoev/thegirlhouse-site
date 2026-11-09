@@ -18,3 +18,27 @@
     });
   }
 })();
+
+// Gallery lightbox (links open the full image without JS).
+(function () {
+  var dlg = document.querySelector('dialog.lb');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-lb]'));
+  var img = dlg.querySelector('img'), i = 0;
+  function show(n) {
+    i = (n + links.length) % links.length;
+    img.src = links[i].getAttribute('href');
+    img.alt = links[i].querySelector('img').alt;
+  }
+  links.forEach(function (a, n) {
+    a.addEventListener('click', function (e) { e.preventDefault(); show(n); dlg.showModal(); });
+  });
+  dlg.querySelector('.lb-x').addEventListener('click', function () { dlg.close(); });
+  dlg.querySelector('.lb-p').addEventListener('click', function () { show(i - 1); });
+  dlg.querySelector('.lb-n').addEventListener('click', function () { show(i + 1); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+})();

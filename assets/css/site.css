@@ -22,8 +22,8 @@ a{color:inherit}
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font:500 .95rem/1 var(--sans);text-decoration:none;white-space:nowrap}
 .btn-main{background:var(--neon);color:var(--grafit)}
-.ic{width:20px;height:20px;flex:none}
-.btn .ic{width:18px;height:18px;margin:0 8px 0 -4px}
+.ic{width:16px;height:16px;flex:none}
+.btn .ic{width:15px;height:15px;margin:0 7px 0 -2px}
 .btn-main:hover{background:#ff86d1}
 .btn-alt{border:1.5px solid var(--szary);color:var(--krem)}
 .btn-alt:hover{border-color:var(--krem)}
@@ -119,6 +119,8 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(10px,2vw,20px);margin:40px auto 0;max-width:900px}
 @media (min-width:720px){.gallery{grid-template-columns:repeat(3,1fr)}}
 .gallery figure{position:relative;aspect-ratio:4/5;background:var(--ciemne-2);border-radius:18px;overflow:hidden}
+.gallery a{display:block;height:100%}
+.gallery a:focus-visible{outline-offset:-3px}
 .gallery img{width:100%;height:100%;object-fit:cover}
 .gallery .ph{inset:auto 0 46% 0}
 
@@ -158,10 +160,10 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 @media (min-width:820px){.contact{grid-template-columns:1fr 1fr;gap:40px}}
 .contact h3{font:400 1.3rem/1.25 var(--display);margin-bottom:14px;display:flex;align-items:center;gap:12px}
 .links{list-style:none;display:grid;gap:20px}
-.links li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
-.ico{width:44px;height:44px;border-radius:14px;background:var(--ciemne-2);display:grid;place-items:center;color:var(--neon);flex:none}
-.ico.sm{width:36px;height:36px;border-radius:12px}
-.ico .ic{width:20px;height:20px}
+.links li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:center}
+.ico{width:32px;height:32px;border-radius:10px;background:var(--ciemne-2);display:grid;place-items:center;color:var(--neon);flex:none}
+.ico.sm{width:28px;height:28px;border-radius:9px}
+.ico .ic{width:16px;height:16px}
 .links .k{display:block;font-size:.8rem;color:var(--szary);letter-spacing:.02em}
 .links .sub{display:block;color:var(--szary);font-size:.9rem}
 .contact p,.contact dd{color:var(--szary)}
@@ -177,7 +179,7 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .social{display:flex;flex-wrap:wrap;gap:10px}
 .social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1.5px solid var(--linia);border-radius:999px;text-decoration:none;font-size:.9rem}
 .social a:hover{border-color:var(--szary)}
-.social .ic{width:18px;height:18px;color:var(--neon)}
+.social .ic{width:14px;height:14px;color:var(--neon)}
 .legal-line{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
 
 /* Legal page */
@@ -186,3 +188,14 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .legal h2{text-align:left;font-size:1.35rem;margin-top:32px}
 .legal p{color:var(--szary);margin-top:10px;max-width:68ch}
 .legal a:not(.btn){color:var(--krem)}
+
+/* Lightbox */
+.lb{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh;margin:auto;overflow:visible}
+.lb::backdrop{background:rgba(20,18,17,.88)}
+.lb img{display:block;max-width:100%;max-height:86vh;width:auto;height:auto;border-radius:16px}
+.lb button{position:absolute;width:44px;height:44px;border-radius:999px;border:0;background:var(--ciemne-2);color:var(--krem);font:400 1.6rem/1 var(--sans);cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:var(--ciemne-3)}
+.lb-x{top:-14px;right:-14px}
+.lb-p{left:-14px;top:50%;transform:translateY(-50%)}
+.lb-n{right:-14px;top:50%;transform:translateY(-50%)}
+@media (max-width:560px){.lb-p{left:6px}.lb-n{right:6px}.lb-x{top:6px;right:6px}}

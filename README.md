@@ -5,7 +5,8 @@ Site: https://www.thegirlhouse-pruszcz.pl · Hosting: Netlify (project `thegirlh
 ## Status
 - **Stage 5 (06.11.2026):** PL + EN versions in style B "Wieczór", QA done (Lighthouse mobile: performance 95–100, accessibility 100, best practices 100; SEO 69 only because of `noindex`).
 - Not indexed yet (`noindex` meta + `X-Robots-Tag` in `netlify.toml`). Go-live = remove both.
-- Placeholders waiting for owner input: photos (hero nails, gallery, team), reviews, NIP, hygiene facts (sterilisation, materials).
+- Work photos: 12 in gallery + 5 in hero (from Drive 01_prace, 09.11.2026, WebP, metadata stripped).
+- Placeholders waiting for owner input: team photos, reviews, NIP, hygiene facts (sterilisation, materials).
 
 ## Updating prices
 Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `#uslugi`. Update both, plus the "Aktualne na" date. Also `/en/index.html` (English name + Polish Booksy name per row).
