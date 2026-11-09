@@ -4,7 +4,7 @@ Site: https://www.thegirlhouse-pruszcz.pl · Hosting: Netlify (project `thegirlh
 
 ## Status
 - **Stage 5 (06.11.2026):** PL + EN versions in style B "Wieczór", QA done (Lighthouse mobile: performance 95–100, accessibility 100, best practices 100; SEO 69 only because of `noindex`).
-- Not indexed yet (`noindex` meta + `X-Robots-Tag` in `netlify.toml`). Go-live = remove both.
+- **Live and indexable since 09.11.2026** (noindex removed; only 404.html keeps noindex).
 - Work photos: 12 in gallery + 5 in hero (from Drive 01_prace, 09.11.2026, WebP, metadata stripped).
 - Placeholders waiting for owner input: team photos, reviews, NIP, hygiene facts (sterilisation, materials).
 
@@ -19,4 +19,3 @@ Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `
 ## Rules
 - Every push to `main` = one production deploy (Netlify free plan: 15 credits per deploy, 300/month). Batch changes into one push.
 - No external scripts, trackers, CDN fonts or iframes (zero cookies).
-- Go-live: remove `noindex` from HTML **and** `X-Robots-Tag` from `netlify.toml`.
