@@ -199,3 +199,14 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .lb-p{left:-14px;top:50%;transform:translateY(-50%)}
 .lb-n{right:-14px;top:50%;transform:translateY(-50%)}
 @media (max-width:560px){.lb-p{left:6px}.lb-n{right:6px}.lb-x{top:6px;right:6px}}
+
+/* Official social icons (Meta guidelines: min 29px, clear space) */
+.soc{display:flex;align-items:center;gap:20px}
+.soc a{display:block;padding:8px;margin:-8px;border-radius:10px;line-height:0}
+.soc a:hover{background:var(--ciemne-2)}
+.soc img{width:30px;height:30px}
+.links .soc-li{grid-template-columns:1fr}
+.links .soc-li .soc{margin-top:10px}
+.foot .social{align-items:center}
+.foot .social .soc{margin:0 14px;gap:24px}
+.social .soc a{border:0;min-height:0;padding:8px;margin:-8px;border-radius:10px}
