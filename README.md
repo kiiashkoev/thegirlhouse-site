@@ -20,6 +20,11 @@ Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `
 - Every push to `main` = one production deploy (Netlify free plan: 15 credits per deploy, 300/month). Batch changes into one push.
 - No external scripts, trackers, CDN fonts or iframes (zero cookies).
 
+## Pages (13.11.2026)
+- `/`, `/en/`, privacy pages, plus PL service pages: `/manicure-hybrydowy/`, `/paznokcie-zelowe/`, `/pedicure/` (prices repeat the main price list: update there too).
+- Motion: hero nails grow-in, marquee, sticky booking button (mobile), gallery hover + lightbox fade, smooth accordions, logo "the" wipe (CSS inside logo-ciemne.svg), rating count-up. All off under `prefers-reduced-motion`.
+- Team photos: Julia, Olena, Anna, Lena (Natalka, Oksana: initials until photos arrive). Salon interior: 3 photos.
+
 ## Cache busting
 CSS/JS are linked with `?v=<md5>` generated from file content, so browsers always fetch a changed file
 (needed because the first deploys sent `immutable` 1-year cache on all assets). Icons carry width/height="16" as a fallback.

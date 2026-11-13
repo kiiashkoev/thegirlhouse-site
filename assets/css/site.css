@@ -210,3 +210,73 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .foot .social{align-items:center}
 .foot .social .soc{margin:0 14px;gap:24px}
 .social .soc a{border:0;min-height:0;padding:8px;margin:-8px;border-radius:10px}
+
+/* ===== Motion (all disabled under prefers-reduced-motion) ===== */
+:root{interpolate-size:allow-keywords}
+[data-count]{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:no-preference){
+  /* 1. hero nails grow in, then the neon tip is painted */
+  .hand .nail{animation:grow .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,1)*110ms + 100ms)}
+  .hand .nail .tip{transform-origin:top;animation:paint .5s ease-out both;animation-delay:calc(var(--i,1)*110ms + 700ms)}
+  /* 2. marquee */
+  .marquee .track{animation:slide 60s linear infinite}
+  .marquee:hover .track{animation-play-state:paused}
+  /* 4. gallery */
+  .gallery img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+  .gallery a:hover img,.gallery a:focus-visible img{transform:scale(1.05)}
+  .lb[open]{animation:lbin .25s ease-out}
+  .lb[open]::backdrop{animation:fade .25s ease-out}
+  /* 3. sticky CTA slide */
+  .sticky-cta{transition:transform .3s ease,visibility .3s}
+}
+@keyframes grow{from{opacity:0;transform:translateY(36px) scale(.92)}to{opacity:1;transform:none}}
+@keyframes paint{from{transform:scaleY(0)}to{transform:none}}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes lbin{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* 5. smooth open/close for price list and FAQ (browsers without support just toggle) */
+@supports selector(::details-content){
+  @media (prefers-reduced-motion:no-preference){
+    .cat::details-content,.faq details::details-content{block-size:0;overflow:clip;transition:block-size .35s ease,content-visibility .35s allow-discrete}
+    .cat[open]::details-content,.faq details[open]::details-content{block-size:auto}
+  }
+}
+
+/* Marquee */
+.marquee{overflow:hidden;border-top:1px solid var(--linia);padding:18px 0}
+.marquee .track{display:flex;width:max-content}
+.marquee .set{display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;font:400 1.15rem/1 var(--display);color:var(--krem)}
+.marquee .mini{display:block;width:10px;height:13.5px}
+
+/* Sticky booking button (phones and tablets only) */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:9;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--ciemne);border-top:1px solid var(--linia);transform:translateY(110%);visibility:hidden}
+.sticky-cta .btn{width:100%}
+.sticky-cta.on{transform:none;visibility:visible}
+@media (min-width:960px){.sticky-cta{display:none}}
+@media (max-width:959px){.foot{padding-bottom:104px}}
+
+/* Service links */
+.deep{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin:28px auto 0;max-width:var(--text);color:var(--szary);font-size:.95rem}
+.deep.left{justify-content:flex-start;margin-top:12px}
+.deep a{color:var(--krem);text-underline-offset:3px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 20px}
+
+/* Service pages */
+.svc{padding:clamp(32px,6vw,72px) 0 clamp(48px,7vw,88px)}
+.svc .crumb{font-size:.85rem;color:var(--szary)}
+.svc .crumb a{color:var(--szary);text-underline-offset:3px}
+.svc h1{font:400 clamp(2.1rem,5.5vw,3.4rem)/1.1 var(--display);margin-top:14px}
+.svc .lead{margin-top:18px;color:var(--szary);font-size:1.05rem;max-width:60ch}
+.svc .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.svc h2{text-align:left;font-size:clamp(1.5rem,3.4vw,1.9rem);margin-top:52px}
+.svc .cats{margin-top:20px}
+.svc .cat-h{display:flex;align-items:center;gap:12px;min-height:60px;font:400 1.35rem/1.2 var(--display)}
+.svc .note,.svc .where{color:var(--szary);margin-top:14px;font-size:.95rem}
+.svc .where{font-size:1rem;line-height:1.8}
+.svc .where a,.svc .more-line a{color:var(--krem);text-underline-offset:3px}
+.svc .gallery{margin-top:20px;grid-template-columns:repeat(3,1fr)}
+.svc .more-line{margin-top:14px;font-size:.95rem}
+.know{list-style:none;margin-top:16px;display:grid;gap:10px;color:var(--szary)}
+.know li{padding-left:26px;position:relative}
+.know li::before{content:"";position:absolute;left:0;top:.45em;width:10px;height:13.5px;background:var(--neon);clip-path:url(#nail)}

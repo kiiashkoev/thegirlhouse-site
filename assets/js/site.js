@@ -42,3 +42,39 @@
     if (e.key === 'ArrowLeft') show(i - 1);
   });
 })();
+
+// Sticky booking button: appears once the first booking button has scrolled away,
+// hides while the contact section's own button is on screen.
+(function () {
+  var bar = document.querySelector('.sticky-cta');
+  var anchor = document.querySelector('[data-sticky-anchor]');
+  if (!bar || !anchor || !('IntersectionObserver' in window)) return;
+  var past = false, atContact = false;
+  function update() { bar.classList.toggle('on', past && !atContact); }
+  new IntersectionObserver(function (es) {
+    var e = es[0]; past = !e.isIntersecting && e.boundingClientRect.top < 0; update();
+  }).observe(anchor);
+  var contact = document.querySelector('#kontakt .btns');
+  if (contact) new IntersectionObserver(function (es) { atContact = es[0].isIntersecting; update(); }).observe(contact);
+})();
+
+// Count-up for the rating numbers.
+(function () {
+  var els = document.querySelectorAll('[data-count]');
+  if (!els.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function run(el) {
+    var to = parseFloat(el.getAttribute('data-count')), dec = +(el.getAttribute('data-dec') || 0);
+    var sep = el.getAttribute('data-sep') || '.', t0 = null, dur = 1200;
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1), v = to * (1 - Math.pow(1 - p, 3));
+      el.textContent = v.toFixed(dec).replace('.', sep);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); run(e.target); } });
+  }, { threshold: 0.6 });
+  els.forEach(function (el) { io.observe(el); });
+})();
