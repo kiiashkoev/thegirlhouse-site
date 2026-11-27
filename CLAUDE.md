@@ -1,18 +1,18 @@
 # The Girl House — сайт салона
 
 ## Что это
-- Статический сайт без сборки: HTML/CSS/JS, Netlify публикует корень репозитория (publish = ".").
-- PL — в корне, EN — в /en/. Страницы услуг — в своих папках (/manicure-hybrydowy/, /paznokcie-zelowe/, /pedicure/).
+- Статический сайт без сборки: HTML/CSS/JS. Сайт — в папке public/ (publish = "public"); служебные файлы — в корне, на сайт не попадают.
+- PL — в public/, EN — в public/en/. Страницы услуг — в своих папках (/manicure-hybrydowy/, /paznokcie-zelowe/, /pedicure/).
 - Бренд: неон #FF6EC7, графит #2B2A28, крем #F3ECE4; тёмная тема.
 
 ## Цены
-- Цены есть в: index.html (#cennik и «od … zł» в #uslugi), /en/index.html, страницах услуг (включая meta description «od … zł»).
+- Цены есть в: public/index.html (#cennik и «od … zł» в #uslugi), public/en/index.html, страницах услуг (включая meta description «od … zł»).
 - Менять везде одинаково и обновлять дату: «Aktualne na …» (PL) и «Prices as of …» (EN).
 
 ## Ограничения
 - Никаких внешних скриптов, трекеров, CDN-шрифтов и iframe — CSP в netlify.toml это запрещает.
 - При изменении CSS/JS обновлять ?v=<md5> во всех ссылках на файл (первые 8 символов md5 содержимого) — cache busting.
-- Служебные файлы (CLAUDE.md, README.md, netlify.toml, .claude/) закрыты правилами 404 в netlify.toml; новый служебный файл в корне — добавить правило.
+- Новые файлы сайта — только в public/; служебные (заметки, настройки) — только вне public/.
 
 ## Git и деплой
 - Каждый push в main = деплой на домен (15 кредитов из 300 в месяц).
