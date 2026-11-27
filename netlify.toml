@@ -1,4 +1,4 @@
-# The Girl House — www.thegirlhouse-pruszcz.pl
+# The Girl House — www.thegirlhouse.com.pl
 # Static site, no build step. Site files live in public/; repo root (CLAUDE.md, README.md…) is never published.
 
 [build]
@@ -37,3 +37,17 @@
   for = "/assets/js/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Domain move: old domain → www.thegirlhouse.com.pl, permanent (301), path kept.
+# Keep these rules FIRST among [[redirects]]: Netlify applies the first matching rule.
+[[redirects]]
+  from = "https://www.thegirlhouse-pruszcz.pl/*"
+  to = "https://www.thegirlhouse.com.pl/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://thegirlhouse-pruszcz.pl/*"
+  to = "https://www.thegirlhouse.com.pl/:splat"
+  status = 301
+  force = true

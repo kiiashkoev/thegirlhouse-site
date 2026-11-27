@@ -1,6 +1,6 @@
 # The Girl House — strona www
 
-Site: https://www.thegirlhouse-pruszcz.pl · Hosting: Netlify (project `thegirlhouse-pruszcz`, deploy on push to `main`).
+Site: https://www.thegirlhouse.com.pl · Hosting: Netlify (project `thegirlhouse-pruszcz`, deploy on push to `main`).
 
 ## Status
 - **Stage 5 (06.11.2026):** PL + EN versions in style B "Wieczór", QA done (Lighthouse mobile: performance 95–100, accessibility 100, best practices 100; SEO 69 only because of `noindex`).
