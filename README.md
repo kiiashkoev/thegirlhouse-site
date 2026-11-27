@@ -9,11 +9,11 @@ Site: https://www.thegirlhouse-pruszcz.pl · Hosting: Netlify (project `thegirlh
 - Placeholders waiting for owner input: team photos, reviews, NIP, hygiene facts (sterilisation, materials).
 
 ## Updating prices
-Prices live in `index.html` (section `#cennik`) and the "od … zł" values in `#uslugi`. Update both, plus the "Aktualne na" date. Also `/en/index.html` (English name + Polish Booksy name per row).
+Prices live in `public/index.html` (section `#cennik`) and the "od … zł" values in `#uslugi`. Update both, plus the "Aktualne na" date. Also `public/en/index.html` (English name + Polish Booksy name per row).
 
 ## Structure
-- Static HTML/CSS, no build step. Netlify: build command empty, publish directory `.`.
-- `netlify.toml` — security headers, asset caching.
+- Static HTML/CSS, no build step. Netlify: build command empty, publish directory `public/` (all site files live there; repo-root files are not published).
+- `netlify.toml` (repo root) — publish directory, security headers, asset caching.
 - Brand: set N4 (neon `#FF6EC7`, grafit `#2B2A28`, krem `#F3ECE4`).
 
 ## Rules
