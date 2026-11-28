@@ -144,6 +144,16 @@ h2{font:400 clamp(2rem,4.6vw,3rem)/1.1 var(--display);text-align:center}
 .rating .big{font:400 clamp(3rem,9vw,5rem)/1 var(--display)}
 .rating .big .star{font-size:.6em;vertical-align:.25em;margin-right:8px}
 .rating p{color:var(--szary);margin-top:8px}
+.quotes{display:grid;gap:14px;margin:36px auto 0;max-width:var(--max)}
+@media (min-width:720px){.quotes{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}
+.quote{background:var(--ciemne-2);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.quote blockquote{font-size:.98rem;line-height:1.6}
+.quote blockquote{quotes:"\201E" "\201D"}
+:lang(en) .quote blockquote{quotes:"\201C" "\201D"}
+.quote blockquote p::before{content:open-quote;color:var(--neon)}
+.quote blockquote p::after{content:close-quote;color:var(--neon)}
+.quote figcaption{margin-top:auto;color:var(--szary);font-size:.88rem}
+.quotes-note{margin:20px auto 0;max-width:var(--text);text-align:center;color:var(--szary);font-size:.8rem;line-height:1.5}
 
 /* FAQ */
 .faq{max-width:var(--text);margin:36px auto 0}
